@@ -10,7 +10,7 @@
   },
   "main": "./lib/zombie-server",
   "bin": {
-    "zombie-server": "./bin/zombie-server"
+    "zombies": "./bin/zombies"
   },
   "scripts": {
     "test": "node spec/all-specs.js"
@@ -19,7 +19,8 @@
     "node": "0.4.x || 0.6.x"
   },
   "dependencies": {
-    "zombie": "0.11.x"
+    "zombie": "0.11.x",
+    "express": "2.5.x"
   },
   "devDependencies": {
     "nodespec": "0.2.x",

@@ -9,7 +9,7 @@ function extract_spec_files(dir) {
     stat = fs.statSync(resolved);
     if (stat.isDirectory()) {
       extract_spec_files(resolved);
-    } else if (/-(?:spec|test).js$/.test(file)) {
+    } else if (/-(?:spec).js$/.test(file)) {
       files.push(resolved);
     }
   });

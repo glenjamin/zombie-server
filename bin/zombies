@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+var DEFAULT_PORT = 7667;
+
+if (process.argv[2] == '--help' || process.argv[2] == '-h') {
+    console.log("Usage: zombie-server [port]");
+    console.log("  port defaults to 7667");
+    process.exit();
+}
+
+var port;
+if (process.argv[2]) {
+    port = parseInt(process.argv[2]);
+    if (isNaN(port)) {
+        console.warn('Expected port to be a number')
+        process.exit(1);
+    }
+}
+port = port || DEFAULT_PORT;
+
+var zombies = require('zombie-server');
+var server = zombies.createServer();
+server.start(port, function(err) {
+    if (err) {
+        console.warn(err.toString());
+        process.exit(1);
+    }
+    console.log('Zombies being served on port ' + port);
+});
